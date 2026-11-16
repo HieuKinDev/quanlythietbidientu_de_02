@@ -1,6 +1,9 @@
 package entity;
 
 import java.text.DecimalFormat;
+import java.util.Objects;
+
+import enums.XuatXu;
 
 public abstract class ThietBi {
 	protected String maThietBi;
@@ -78,6 +81,23 @@ public abstract class ThietBi {
 		this.soLuongTon = soLuongTon;
 	}
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(maThietBi);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ThietBi other = (ThietBi) obj;
+		return Objects.equals(maThietBi, other.maThietBi);
+	}
+
 	public abstract double tinhGiaBanLe();
 
 	@Override
